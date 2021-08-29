@@ -2,13 +2,15 @@
 #include "recognizer.h"
 
 
-PhoneNumberRecognizer::PhoneNumberRecognizer() : 
+PhoneNumberRecognizer::PhoneNumberRecognizer(int lineSensePin) : 
+  _lineSensePin(lineSensePin),
   _currentDigit(0),
   _pulseCount(0),
   _timePinChanged(0),
   _previousPinValue(HIGH),
   _state(ON_HOOK) {
 
+    pinMode(lineSensePin, INPUT);
 }
 
 PhoneNumberRecognizer::StateType PhoneNumberRecognizer::detect() {
@@ -19,7 +21,7 @@ PhoneNumberRecognizer::StateType PhoneNumberRecognizer::detect() {
     return _state;
   }
 
-  int currentPinValue = digitalRead(phonePin);
+  int currentPinValue = digitalRead(_lineSensePin);
 
   if (currentPinValue != _previousPinValue) {
     if (now - _timePinChanged < DEBOUNCE_TIME_MILIS) {

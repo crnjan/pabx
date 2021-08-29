@@ -1,4 +1,4 @@
-appname := pbx
+appname := pabx
 
 CXX := g++
 CXXFLAGS := -Wall -O3
