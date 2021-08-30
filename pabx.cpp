@@ -8,17 +8,17 @@ typedef enum { IDLE, IN_CALL } StateType;
 //
 // Raspberry Pi Model B Rev 1
 // 
-// 11 -> 26 (header)
-// 12 -> 19 (header)
-// 13 -> 21 (header)
-// 14 -> 23 (header)
-static const int RING_PHONE_1_PIN = 11;
-static const int RING_PHONE_2_PIN = 12;
-static const int RING_PHONE_3_PIN = 13;
-static const int RING_PHONE_4_PIN = 14;
+// 0 -> 11 (header)
+// 1 -> 12 (header)
+// 2 -> 13 (header)
+// 3 -> 15 (header)
+static const int RING_PHONE_1_PIN = 0;
+static const int RING_PHONE_2_PIN = 1;
+static const int RING_PHONE_3_PIN = 2;
+static const int RING_PHONE_4_PIN = 3;
 
-// 6 -> 22 (header)
-static const int LINE_SENSE_PIN = 6;
+// 4 -> 16 (header)
+static const int LINE_SENSE_PIN = 4;
 
 static void ring(int ringPhonePin) {
   digitalWrite(ringPhonePin, HIGH);
@@ -29,13 +29,13 @@ static void ring(int ringPhonePin) {
 static void processNumber(const char* phoneNumber) {
   printf("Processing number %s\n", phoneNumber);
 
-  if (strcmp(phoneNumber, "22")) {
+  if (strcmp(phoneNumber, "22") == 0) {
     ring(RING_PHONE_1_PIN);
-  } else if (strcmp(phoneNumber, "24")) {
+  } else if (strcmp(phoneNumber, "24") == 0) {
     ring(RING_PHONE_2_PIN);
-  } else if (strcmp(phoneNumber, "26")) {
+  } else if (strcmp(phoneNumber, "26") == 0) {
     ring(RING_PHONE_3_PIN);
-  } else if (strcmp(phoneNumber, "28")) {
+  } else if (strcmp(phoneNumber, "28") == 0) {
     ring(RING_PHONE_4_PIN);
   } else {
     printf("Unknown number %s\n", phoneNumber);
