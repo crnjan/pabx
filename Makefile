@@ -19,7 +19,7 @@ depend: .depend
 	$(CXX) $(CXXFLAGS) -MM $^>>./.depend;
 
 clean:
-	rm -f $(objects)
+	rm -rf $(objects) $(appname)
 
 dist-clean: clean
 	rm -f *~ .depend

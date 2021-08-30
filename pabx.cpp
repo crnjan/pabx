@@ -56,7 +56,7 @@ static void ring(int ringPhonePin) {
   delay(100);
 
   digitalWrite(ringPhonePin, HIGH);
-  delay(200);
+  delay(100);
 }
 
 static void processNumber(const char* phoneNumber) {
