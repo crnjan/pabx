@@ -1,6 +1,6 @@
 # Multi-Line Telephone Intercom
 
-When my kids found some old rotary phones and inspired by [this](https://www.youtube.com/watch?v=BGbmFF56iH8) video I ended up building a very crude PABX :).
+When my kids found some old rotary phones and inspired by [this](https://www.youtube.com/watch?v=BGbmFF56iH8) video I ended up building a very crude PABX.
 
 ## Setup
 
@@ -91,7 +91,7 @@ Since circuit does not prevent generating ring to a phone with off-hook - i.e. d
 
 ### Next Steps
 
-It was fun building this - and since "newer" DTMF capable phones usually can be switched to generate pulse dailing - pretty much all phones can be used with above setup :).
+It was fun building this - and since "newer" DTMF capable phones usually can be switched to generate pulse dailing - pretty much all phones can be used with above setup.
 
 Besides calling each other within the house (which is fun and saves some stair-trips), I'm planning to add support for MQTT (or similar) - imagine dialing `99` which would then turn all the lights off in the house. Pretty easy to do with this in place - just need to connect to [openHAB](https://www.openhab.org/) (or some other smarthouse app, it's just that I'm using OH) and send a MQTT message with `99` payload and configure OH that `99` should turn all the lights off ...
 
