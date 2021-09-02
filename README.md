@@ -74,7 +74,7 @@ Above GPIOs are connected, as marked on circuit:
 
 ### Finally
 
-When circuit is assembled and RPI connected, one can build the source code - a simle `make` should do the trick.
+When circuit is assembled and RPI connected, one can build the source code - a simple `make` should do the trick.
 
 When code is started and everthing is connected/assembled properly, the following phone numbers should make a phone ring:
 
@@ -93,7 +93,11 @@ Since circuit does not prevent generating ring to a phone with off-hook - i.e. d
 
 It was fun building this - and since "newer" DTMF capable phones usually can be switched to generate pulse dailing - pretty much all phones can be used with above setup.
 
-Besides calling each other within the house (which is fun and saves some stair-trips), I'm planning to add support for MQTT (or similar) - imagine dialing `99` which would then turn all the lights off in the house. Pretty easy to do with this in place - just need to connect to [openHAB](https://www.openhab.org/) (or some other smarthouse app, it's just that I'm using OH) and send a MQTT message with `99` payload and configure OH that `99` should turn all the lights off ...
+Besides calling each other within the house (which is fun and saves some stair-trips), I'm planning to add support for:
 
+*  MQTT (or similar) - imagine dialing `99` which would then turn all the lights off in the house. Pretty easy to do with this in place - just need to connect to [openHAB](https://www.openhab.org/) (or some other smarthouse app, it's just that I'm using OH) and send a MQTT message with `99` payload and configure OH that `99` should turn all the lights off ...
+* disable ringer between i.e. 20:00 and 8:00 to prevent ringer waking somebody up,
+* alarm clock - select time when phone ringer should wake you up,
+* ...
 
 
