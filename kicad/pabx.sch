@@ -518,32 +518,6 @@ F 3 "~" H 7050 4100 50  0001 C CNN
 	1    7050 4100
 	-1   0    0    1   
 $EndComp
-$Comp
-L power:+5V #PWR015
-U 1 1 6145EBAF
-P 7050 3700
-F 0 "#PWR015" H 7050 3550 50  0001 C CNN
-F 1 "+5V" H 7065 3873 50  0000 C CNN
-F 2 "" H 7050 3700 50  0001 C CNN
-F 3 "" H 7050 3700 50  0001 C CNN
-	1    7050 3700
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR012
-U 1 1 61464120
-P 6400 2650
-F 0 "#PWR012" H 6400 2500 50  0001 C CNN
-F 1 "+5V" H 6415 2823 50  0000 C CNN
-F 2 "" H 6400 2650 50  0001 C CNN
-F 3 "" H 6400 2650 50  0001 C CNN
-	1    6400 2650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6400 2900 6400 2650
-Wire Wire Line
-	7050 3700 7050 3950
 Wire Wire Line
 	7050 4250 7050 4350
 Connection ~ 7050 4350
@@ -1315,4 +1289,18 @@ Wire Wire Line
 Connection ~ 6600 6750
 Wire Wire Line
 	6600 7200 6600 7350
+Wire Wire Line
+	6400 2900 6400 2750
+Wire Wire Line
+	6400 2750 7050 2750
+Wire Wire Line
+	8700 2750 8700 3800
+Wire Wire Line
+	8700 3800 9650 3800
+Connection ~ 9650 3800
+Wire Wire Line
+	7050 3950 7050 2750
+Connection ~ 7050 2750
+Wire Wire Line
+	7050 2750 8700 2750
 $EndSCHEMATC
