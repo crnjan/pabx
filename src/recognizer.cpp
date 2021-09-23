@@ -102,8 +102,8 @@ void PhoneNumberRecognizer::handlePinLow (const int& timeSincePinChange) {
 
     case DIALING:
       if (timeSincePinChange >= BETWEEN_DIGITS_TIME_MILIS && _pulseCount) {
-        printf("Finished a digit\n");
-        printf("Count = %d\n", _pulseCount);
+        //printf("Finished a digit\n");
+        //printf("Count = %d\n", _pulseCount);
         if (_currentDigit < NUMBER_OF_DIGITS) {
           if (_pulseCount >= 1 && _pulseCount <= 10) {
             if (_pulseCount == 10) {
@@ -116,7 +116,7 @@ void PhoneNumberRecognizer::handlePinLow (const int& timeSincePinChange) {
         }
 
         if (_currentDigit == NUMBER_OF_DIGITS) {
-          printf("Number acquired! Got: %s\n", _number);
+          //printf("Number acquired! Got: %s\n", _number);
           newState(COMPLETED);
         }
           
@@ -135,6 +135,7 @@ void PhoneNumberRecognizer::newState(const StateType& which) {
     return;
   }
 
+#if 0
   printf("Changing state from ");
   showState(_state);
   printf(" to ");
@@ -142,18 +143,19 @@ void PhoneNumberRecognizer::newState(const StateType& which) {
 
   //showTimeDifference();
   printf("\n");
+#endif  
   
   _state = which;
 }
 
 void PhoneNumberRecognizer::showState (const StateType& which) {
-  switch (which) {
+  /*switch (which) {
     case ON_HOOK:   printf("ON_HOOK");   break;
     case OFF_HOOK:  printf("OFF_HOOK");  break;
     case DIALING:   printf("DIALING");   break;
     case GOT_PULSE: printf("GOT_PULSE"); break;
     case COMPLETED: printf("COMPLETED"); break;
     default:        printf("UNKNOWN");   break;
-  }
+  }*/
 }
 

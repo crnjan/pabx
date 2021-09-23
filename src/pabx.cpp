@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <cstring>
+
 #include "recognizer.h"
+#include "mqttClient.h"
 
 
 //
@@ -67,7 +69,7 @@ static void ring(int ringPhonePin) {
 }
 
 static void processNumber(const char* phoneNumber) {
-  printf("Processing number %s\n", phoneNumber);
+  //printf("Processing number %s\n", phoneNumber);
 
   if (strcmp(phoneNumber, "22") == 0) {
     ring(RING_PHONE_1_PIN);
@@ -78,7 +80,7 @@ static void processNumber(const char* phoneNumber) {
   } else if (strcmp(phoneNumber, "28") == 0) {
     ring(RING_PHONE_4_PIN);
   } else {
-    printf("Unknown number %s\n", phoneNumber);
+    //printf("Unknown number %s\n", phoneNumber);
   }
 }
 
@@ -103,6 +105,9 @@ int main() {
 
   StateType state = IDLE;
   PhoneNumberRecognizer recognizer(LINE_SENSE_PIN);
+  MqttClient mqttClient("tcp://192.168.2.51:1883");
+
+  mqttClient.connect();
 
   while (true) {
     auto result = recognizer.detect();
@@ -110,6 +115,7 @@ int main() {
       case PhoneNumberRecognizer::COMPLETED:
         if (state == IDLE) {
           state = IN_CALL;
+          mqttClient.send(recognizer.number());
           processNumber(recognizer.number());
         }
         break;
